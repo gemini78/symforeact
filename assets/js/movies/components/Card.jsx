@@ -92,6 +92,22 @@ const Card = ({ movie }) => {
       }
     }
     return genreArray.map((genre) => <li key={genre}>{genre}</li>);
+  };
+
+  const addStorage = () => {
+    let storeData = window.localStorage.movies ? window.localStorage.movies.split(",") : [];
+
+    if (!storeData.includes(movie.id.toString())) {
+      storeData.push(movie.id);
+      window.localStorage.movies = storeData;
+    }
+  };
+
+  const deleteStorage = () => {
+    let storedData = window.localStorage.movies.split(",");
+    console.log(movie.id);
+    let newData = storedData.filter((id) => id != movie.id);
+    window.localStorage.movies = newData;
   }
 
   return (
@@ -104,13 +120,24 @@ const Card = ({ movie }) => {
 
       <h4>{movie.vote_average}/10 <span className='star'>&#x2605;</span></h4>
       <ul>
-        {genreFinder()}
+        {movie.genre_ids
+          ? genreFinder()
+          : movie.genres.map((genre, index) => (<li key={index}>{genre.name}</li>))
+        }
       </ul>
 
       {movie.overview ? <h3>Synopsis</h3> : ""}
       <p>{movie.overview}</p>
 
-      <div className='btn'>Ajouter aux coups de coeur</div>
+      {
+        movie.genre_ids ? (
+          <div className='btn' onClick={() => addStorage()}>Ajouter aux coups de coeur</div>
+        ) : (
+          <div className='btn' onClick={() => {
+            deleteStorage();
+            window.location.reload(false);
+          }}>Supprimer de la liste</div>
+        )}
     </div>
   )
 }
