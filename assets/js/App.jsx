@@ -1,8 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import UserList from './pages/UserList';
+import Home from './movies/pages/Home';
+import UserList from './movies/pages/UserList';
 
 const App = () => {
   return (

@@ -13,4 +13,4 @@ import "./bootstrap";
 
 //import './js/movies/Movies.jsx';
 
-import "./js/movies/App.jsx";
+import "./js/App.jsx";
