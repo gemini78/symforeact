@@ -22,8 +22,8 @@ const UserList = () => {
   }, [])
 
   return (
-    <div className='user-list-page'>
-      <Header />
+    <div className='user-list-page movies'>
+      <Header title="React Movies" />
       <h2>Coup de coeur <span>💖</span></h2>
       <div className="result">
         {listData.length > 0 ? (

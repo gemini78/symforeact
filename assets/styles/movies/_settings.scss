@@ -7,14 +7,31 @@
   src: url(./fonts/Dongle-Light.ttf);
 }
 
+@font-face {
+  font-family: "font-3";
+  src: url(./fonts/JosefinSans-Medium.ttf);
+}
+
 $font-1: "font-1", sans-serif;
 $font-2: "font-2", sans-serif;
+$font-3: "font-3", sans-serif;
 
 $color-1: #546fe4;
 $color-2: #212040;
 $color-3: rgb(100, 100, 100);
 $black: #060d2c;
 $white: rgb(238, 238, 238);
+
+$countries_color-1: #61dafb;
+$countries_color-2: salmon;
+$countries_color-3: #282c34;
+$countries_white: rgb(243, 243, 243);
+
+@mixin verticalCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 * {
   margin: 0;
@@ -34,4 +51,28 @@ li {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.world {
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+      background: none;
+      border-radius: 0;
+      height: 320px;
+      width: 200px;
+
+      img {
+        width: 100%;
+        height: 138px;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        margin: 0 auto;
+        border-radius: 0;
+      }
+    }
+  }
 }
